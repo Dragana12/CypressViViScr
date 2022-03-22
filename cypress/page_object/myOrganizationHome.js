@@ -13,9 +13,11 @@ class MyOrganization {
     get newOrgHeading (){
         return cy.get ('span=New Organisation');
     }
-
+    get addOrganisation (){
+        return cy.get ('[class="vs-c-icon"]');
+    }
     get orgName (){
-        return cy.get ('[type="text"]');
+        return cy.get ('input');
     }
 
     get orgLogo (){
@@ -27,12 +29,13 @@ class MyOrganization {
     }
 
     get buttonCreate (){
-        return cy.get ('[class="el-button vs-c-button-focus el-button--success el-button--large"]');
+        return cy.get ('button');
     }
-
-    createOrg (name, logo) {
+   
+    createOrganization(name){
+        this.addOrganisation.click();
         this.orgName.type(name);
-        this.orgLogo.add (logo);
+        this.buttonNext.click({multiple:true, force: true});
         this.buttonCreate.click();
     }
 }

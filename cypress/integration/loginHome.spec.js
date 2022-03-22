@@ -1,6 +1,6 @@
 /// <reference types='cypress'/>
 
-import { loginPage } from "../page_object/login.js";
+import { loginPage } from "../page_object/loginHome";
 
 
 describe ("Login testovi", () => {
@@ -23,7 +23,7 @@ describe ("Login testovi", () => {
 
     });
 
-    it.only ( 'Login sa nepopunjenim email poljem', () => {
+    it ( 'Login sa nepopunjenim email poljem', () => {
         cy.visit ('/')
         loginPage.login (" ", " ");
         loginPage.email.should ('not.contain.text');
